@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath echobot echobot.wsgi
