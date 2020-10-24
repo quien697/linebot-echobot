@@ -261,11 +261,10 @@
 
 - - -
 
-# 上傳到 Github 前的設定
+# 設定 django-dotenv
 
-因為在上傳程式碼到 Github 的時，Django 框架會有一些文件是不需要 push 上去的，再加上 Line bot 的 Channel Access Token 與 Channel Secret 這兩個環境變數也不想要上傳上去。所以需要使用 python-dotenv 與 .gitignore，而.gitignore的部分可以參考 [gitignore.io](https://www.toptal.com/developers/gitignore) 或者使用 Github 預設的，而我這邊是使用 Gitgub預設的。
-
-### 設定django-dotenv
+為了避免上傳時，把 django 所產生的一些不相關的文件以及 Channel Access Token 與 Channel Secret 這兩個環境變數也上傳上去。
+所以使用 .gitignore 搭配 python-dotenv 工具來設定。而 .gitignore 是使用 github 預設，也可以參考 [gitignore.io](https://www.toptal.com/developers/gitignore)
 
 1. 安裝 django-dotenv
 
