@@ -2,8 +2,11 @@
 同時記錄如何使用 [Ngrok](https://ngrok.com) 工具做本機測試  
 也會紀錄如何部署到 [Heroku](https://dashboard.heroku.com) 雲端平台做測試   
 
-開發
-===
+![Result](https://github.com/quien697/linebot-echobot/blob/main/images/Result.jpg)
+
+- - -
+
+# 開發
 
 1. 更新pip
 
@@ -135,27 +138,29 @@
 
    到這裡，實作就完成了，再來就是要測試了～
 
-7. 本機測試
+# 本機測試
 
-      Run server
+1. Run server
 
-        ```
-      (venv) linebot-echobot/echobot$ python manage.py runserver
-        ```
+   ```
+   (venv) linebot-echobot/echobot$ python manage.py runserver
+   ```
 
-      執行結果
+   執行結果
 
-     ![Localhost_Runserver](https://github.com/quien697/linebot-echobot/blob/main/images/Localhost_Runserver.png)
+      ![Localhost_Runserver](https://github.com/quien697/linebot-echobot/blob/main/images/Localhost_Runserver.png)
 
-8. 利用 [Ngrok](https://ngrok.com) 將 localhost URLs 對應到 Public URLs
+2. 利用 [Ngrok](https://ngrok.com) 將 localhost URLs 對應到 Public URLs
 
-        $ ngrok http 8000
+    ```
+      $ ngrok http 8000
+   ```
+   
+   執行結果
     
-     執行結果
+      ![Localhost_Ngrok](https://github.com/quien697/linebot-echobot/blob/main/images/Localhost_Ngrok.png)
     
-    ![Localhost_Ngrok](https://github.com/quien697/linebot-echobot/blob/main/images/Localhost_Ngrok.png)
-    
-9. echobot_app/settings.py
+3. echobot_app/settings.py
 
     ```python
     # Line
@@ -165,18 +170,13 @@
     ```
 
 
-10. 設定 Line Bot 的 Webhook URL
+4. 設定 Line Bot 的 Webhook URL
 
     ![LineBot_WebhookURL1](https://github.com/quien697/linebot-echobot/blob/main/images/LineBot_WebhookURL1.png)
 
-11. 結果測試
-
-    ![Result](https://github.com/quien697/linebot-echobot/blob/main/images/Result.jpg)
-
 - - -
 
-部署到 [Heroku](https://dashboard.heroku.com)
-============================================
+# 部署到 [Heroku](https://dashboard.heroku.com) 做測試
 
 1. 建立新的App，並取名為 linebot-echobot
 
@@ -261,8 +261,7 @@
 
 - - -
 
-上傳到 Github 前的設定
-====================
+# 上傳到 Github 前的設定
 
 因為在上傳程式碼到 Github 的時，Django 框架會有一些文件是不需要 push 上去的，再加上 Line bot 的 Channel Access Token 與 Channel Secret 這兩個環境變數也不想要上傳上去。所以需要使用 python-dotenv 與 .gitignore，而.gitignore的部分可以參考 [gitignore.io](https://www.toptal.com/developers/gitignore) 或者使用 Github 預設的，而我這邊是使用 Gitgub預設的。
 
