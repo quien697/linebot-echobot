@@ -57,7 +57,7 @@
    ```python
    from django.contrib import admin
    from django.urls import path, include
-  
+    
    urlpatterns = [
        path('admin/', admin.site.urls),
        path('echobot/', include('echobot_app.urls')),
@@ -91,7 +91,7 @@
 
    * Basic settings -> Channel secret 
 
-   ![LineBot_ChannelAccessToken](https://github.com/quien697/linebot-echobot/blob/main/images/LineBot_ChannelAccessToken.png)
+   ![LineBot_ChannelAccessToken](https://github.com/quien697/linebot-echobot/blob/main/images/LineBot_ChannelSecret.png)
 
    echobot_app/view.py
 
@@ -99,14 +99,14 @@
    from django.conf import settings
    from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
    from django.views.decorators.csrf import csrf_exempt
-  
+    
    from linebot import LineBotApi, WebhookHandler
    from linebot.exceptions import InvalidSignatureError, LineBotApiError
    from linebot.models import MessageEvent, TextMessage, TextSendMessage
-  
+    
    line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
    handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
-  
+    
    @csrf_exempt
    def callback(request):
        if request.method == 'POST':
@@ -114,7 +114,7 @@
            signature = request.META['HTTP_X_LINE_SIGNATURE']
            # get request body as text
            body = request.body.decode('utf-8')
-  
+    
            # handle webhook body
            try:
                handler.handle(body, signature)
@@ -127,7 +127,7 @@
            return HttpResponse()
        else:
            return HttpResponseBadRequest()
-  
+    
    @handler.add(MessageEvent, message=TextMessage)
    def message_text(event: MessageEvent):
        line_bot_api.reply_message(
@@ -157,9 +157,9 @@
    ```
    
    執行結果
-    
+   
       ![Localhost_Ngrok](https://github.com/quien697/linebot-echobot/blob/main/images/Localhost_Ngrok.png)
-    
+   
 3. echobot_app/settings.py
 
     ```python
