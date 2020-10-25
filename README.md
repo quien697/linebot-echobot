@@ -1,4 +1,4 @@
-本專案使用 Python 搭配 Django 框架實作 Line 聊天機器人  
+本專案紀錄使用 Python 搭配 Django 框架實作 Line 聊天機器人 
 同時記錄如何使用 [Ngrok](https://ngrok.com) 工具做本機測試  
 也會紀錄如何部署到 [Heroku](https://dashboard.heroku.com) 雲端平台做測試   
 
